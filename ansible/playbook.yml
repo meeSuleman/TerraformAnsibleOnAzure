@@ -1,0 +1,8 @@
+- name: Configure Azure VM
+  hosts: azure-vm
+  become: true
+  roles:
+    - nginx
+    - docker
+    - docker-compose
+    - change-nginx-port

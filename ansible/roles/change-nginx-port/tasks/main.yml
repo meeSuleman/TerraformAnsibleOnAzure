@@ -1,0 +1,13 @@
+- name: Change NGINX Port
+  lineinfile:
+    path: /etc/nginx/sites-available/default
+    regexp: 'listen 80;'
+    line: 'listen 81;'
+  notify:
+    - Restart NGINX
+
+handlers:
+  - name: Restart NGINX
+    service:
+      name: nginx
+      state: restarted
